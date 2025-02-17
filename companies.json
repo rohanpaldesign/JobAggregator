@@ -1,0 +1,25 @@
+[
+    {
+      "company": "Company Alpha",
+      "url": "https://companyalpha.com/careers",
+      "type": "static",
+      "selectors": {
+        "job_card": "div.job-listing",
+        "job_title": "h2.title",
+        "job_location": "span.location",
+        "apply_url": "a.apply"
+      }
+    },
+    {
+      "company": "Company Beta",
+      "url": "https://companybeta.com/jobs",
+      "type": "dynamic",
+      "selectors": {
+        "job_card": ".job-card",
+        "job_title": ".job-card-title",
+        "job_location": ".job-card-location",
+        "apply_url": ".job-card-link"
+      }
+    }
+  ]
+  
