@@ -1,0 +1,31 @@
+name: Scrape Multiple Companies and Update Airtable
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"  # Runs every 30 minutes; change to "0 * * * *" for hourly.
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run the scraper
+        env:
+          AIRTABLE_PAT: patjwmkT2KsfKkv2h.6b57471bbe2bbcdabbd580f4c6f02fe170c2a7189efc9c0dd0accf5c36cbac0c
+          BASE_ID: appvSMQKOR629hTFC
+        run: |
+          python scrape_google_careers.py
